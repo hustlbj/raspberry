@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 import time
 from ctypes import *
 import os
+#本来准备调用C语言实现的微秒级定时器，但还是有很大问题。。。
 libc = cdll.LoadLibrary(os.getcwd() + "/libc.so")
 
 '''
@@ -32,6 +33,8 @@ def driver():
 	time.sleep(0.02)
 	# 然后主机拉高并延时等待传感器的响应
 	GPIO.output(16, GPIO.HIGH)
+	i = 1
+	i = 1
 	i = 1
 	i = 1
 	# 等待传感器的握手响应信号和数据信号
