@@ -78,7 +78,7 @@ class ThreadingHttpServer(ThreadingMixIn, HTTPServer):
 	pass
 
 if __name__ == "__main__":
-	PORT_NUM = 80
+	PORT_NUM = 8899
 	serverAddress = ("", PORT_NUM)
 	#server = ThreadingHttpServer(serverAddress, DispatcherHandler)
 	server = HTTPServer(serverAddress, DispatcherHandler)

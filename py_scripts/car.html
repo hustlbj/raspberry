@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="test/html; charset=UTF-8" />
+<title>智能小车控制端</title>
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#forward").click(function(){
+		$.ajax({
+			type: "GET",
+			url: "http://192.168.1.111:8899/car",
+			data: {"a": 1},
+			dataType: "json",
+			cache: "false",
+			success: function(data){},
+			error: function(data){}
+		});
+	});
+	$("#stop").click(function(){
+		$.ajax({
+			type: "GET",
+			url: "http://192.168.1.111:8899/car",
+			data: {"a": 0},
+			dataType: "json",
+			cache: "false",
+			success: function(data){},
+			error: function(data){}
+		});
+	});
+	$("#back").click(function(){
+		$.ajax({
+			type: "GET",
+			url: "http://192.168.1.111:8899/car",
+			data: {"a": 2},
+			dataType: "json",
+			cache: "false",
+			success: function(data){},
+			error: function(data){}
+		});
+	});
+	$("#front_left_turn").click(function(){
+		$.ajax({
+			type: "GET",
+			url: "http://192.168.1.111:8899/car",
+			data: {"a": 3},
+			dataType: "json",
+			cache: "false",
+			success: function(data){},
+			error: function(data){}
+		});
+	});
+	$("#front_right_turn").click(function(){
+		$.ajax({
+			type: "GET",
+			url: "http://192.168.1.111:8899/car",
+			data: {"a": 4},
+			dataType: "json",
+			cache: "false",
+			success: function(data){},
+			error: function(data){}
+		});
+	});
+});
+</script>
+</head>
+<body>
+<button id="forward" name="forward">前进</button>
+<button id="back" name="back">后退</button>
+<button id="front_left_turn" name="front_left_turn">左前拐</button>
+<button id="front_right_turn" name="front_right_turn">右前拐</button>
+<button id="stop" name="stop">停止</button>
+</body>
+</html>
