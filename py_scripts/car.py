@@ -29,6 +29,14 @@ def set_back():
 def set_forward():
 	GPIO.output(31, GPIO.HIGH)
 	GPIO.output(35, GPIO.HIGH)
+def set_left():
+	GPIO.output(35, GPIO.HIGH)
+	time.sleep(0.3)
+	GPIO.output(35, GPIO.LOW)
+def set_right():
+	GPIO.output(31, GPIO.HIGH)
+	time.sleep(0.3)
+	GPIO.output(31, GPIO.LOW)
 
 def back():
 	reset_forward()
@@ -44,12 +52,24 @@ def forward():
 	time.sleep(1)
 	reset_back()
 	reset_forward()
+def left():
+	reset_back()
+	reset_forward()
+	set_left()
+def right():
+	reset_back()
+	reset_forward()
+	set_right()
+	
 	
 if __name__ == "__main__":
 	try:
 		init()
 		forward()
 		back()
+		left()
+		time.sleep(1)
+		right()
 	except KeyboardInterrupt as e:
 		print(e)
 	except Exception as e:
