@@ -1,0 +1,23 @@
+[Unit]
+Description=Link network connectivity (%i)
+Wants=network.target
+Before=network.target
+BindsTo=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/conf.d/network-link1@%i
+
+ExecStart=/usr/bin/ip link set dev %i up
+#ExecStart=/usr/bin/wpa_supplicant -B -i %i -c /etc/wpa_supplicant/wpa_supplicant.conf
+ExecStart=/usr/bin/ip addr add ${address}/${netmask} broadcast ${broadcast} dev %i
+#ExecStart=/usr/bin/hostapd -B /etc/hostapd/hostapd.conf
+#ExecStart=ifconfig | mutt -F /etc/mutt/mutt.conf -s "raspberry ips" hustlbj@qq.com
+
+ExecStop=/usr/bin/ip addr flush dev %i
+ExecStop=/usr/bin/ip link set dev %i down
+
+[Install]
+WantedBy=multi-user.target
