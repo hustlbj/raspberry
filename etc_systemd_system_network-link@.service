@@ -16,6 +16,8 @@ ExecStart=/usr/bin/ip addr add ${address}/${netmask} broadcast ${broadcast} dev 
 ExecStart=/usr/bin/ip route add default via ${gateway}
 #ExecStart=/usr/bin/hostapd -B /etc/hostapd/hostapd.conf
 #ExecStart=ifconfig | mutt -F /etc/mutt/mutt.conf -s "raspberry ips" hustlbj@qq.com
+ExecStart=/usr/bin/mount -o remount rw /
+ExecStart=/usr/bin/ds1302 -slc 
 
 ExecStop=/usr/bin/ip addr flush dev %i
 ExecStop=/usr/bin/ip link set dev %i down
