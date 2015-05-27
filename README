@@ -1,3 +1,11 @@
+一、关于一些systemctl服务的配置文件
 1. etc_netctl_eth0表示/etc/netctl/eth0，同理etc_netctl_eth0.static，通过netctl enable eth0来使eth0配置文件有效，eth0.static是eth0静态IP配置的备份文件，如果需要启动静态IP，则mv eth0.static eth0.
 2. etc_conf.d_network-link@eth0，放置在/etc/conf.d/下面的eth0的配置文件，可以传递给.service文件，.service文件里面读取该配置文件项。其他的类似文件同理。
 3. etc_systemd_system_network-link@.service，放置在/etc/systemd/system/下的systemctl服务文件network-link@.service，里面可以调用2中的配置文件，如systemctl enable network-link@eth0.service，就会将eth0作为参数传入，在服务文件里面的脚本就可以根据传入的eth0参数来调用/etc/conf.d/eth0这个文件。
+
+二、关于自己编写的程序
+c_scripts/ 放置C语言程序，主要使用到了wringPi库
+py_scripts/ 放置python编写的程序，主要使用了RPi库
+wiringPi/examples/ 修改一些树莓派外围模块的驱动文件，来适配自己的树莓派B+
+
+三、一些开源库和驱动程序
