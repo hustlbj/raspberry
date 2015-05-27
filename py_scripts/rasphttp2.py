@@ -86,6 +86,8 @@ if __name__ == "__main__":
 	try:
 		server.serve_forever()
 	except KeyboardInterrupt, e:
+		pass
+	finally:
 		server.socket.close()
 		print 'Exit...'
 
