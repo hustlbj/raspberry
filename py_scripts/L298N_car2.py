@@ -132,6 +132,7 @@ if __name__ == "__main__":
 	#front_right_forward()
 	#rear_left_forward()
 	#rear_right_forward()
+	'''
 	forward()
 	time.sleep(2)
 	back()
@@ -144,4 +145,5 @@ if __name__ == "__main__":
 	time.sleep(1)
 	rear_right_turn()
 	stop()
+	'''
 	GPIO.cleanup()
